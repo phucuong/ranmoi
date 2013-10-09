@@ -41,5 +41,16 @@
 			$this->view->news =$news->getNewsTitleFromCat(23);
 			$this->view->news_detail = $news->getNewDetail($newName);
 		}
+		
+		public function contactAction(){
+			$newName = $this->_request->getParam('news_name','');
+			$category = new Category();
+			$catBotLv1 = $category->getCateLever1(3);
+			$this->view->bot_cats = $catBotLv1;
+			$news = new News();
+			$photo = new Photo();
+			$this->view->photos = $photo->getAllPhoto();
+			$this->view->news =$news->getNewsTitleFromCat(23);
+		}
 	}
 ?>
