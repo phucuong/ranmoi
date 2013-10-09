@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Quản Trị User</title>
+<link href="/common/css/adminstyle.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/common/js/jquery.js"></script>
+</head>
+<body>
+<div id="wrapper">
+<div id="header">
+<h1>Rắn mối Giang Điền</h1>
+<h3>PHẦN QUẢN TRỊ WEBSITE</h3>
+<div id="chao">Chào bạn {$name}
+</div>
+<div id="thoat"><a href="/">Trang chủ</a> &nbsp; <a href="/logout">Thoát</a></div>
+</div>
+{include file="./include/admin_menu.html"}
+<div id="info">
+<div id="caption">Đổi mật khẩu</div>
+<div id="homnay">{$time}</div>
+</div>
+<div id="content_wrapper">
+<div id="content">
+<div id="dv_alert"></div>
+<div style="padding: 5px;">
+	<table border="1" cellpadding="4px" width="600px" align="center">
+		<tr>
+			<th>Mật khẩu cũ</th> 
+			<td><input type="password" id="old_pass" /></td>
+		</tr>
+		<tr>
+			<th>Mật khẩu mới</th> 
+			<td><input type="password" id="new_pass" /></td>
+		</tr>
+		<tr>
+			<th>Lặp lại mật khẩu mới</th> 
+			<td><input type="password" id="re_new_pass" /></td>
+		</tr>
+		<tr>
+			<th></th> 
+			<td><a href="javascript:void(0);" id="btn_submit" class="btn submit submitBtn">Cập nhật</a></td>
+		</tr>
+	</table>
+</div>
+</div>
+</div>
+</div>
+{literal}
+<script type="text/javascript">
+$(document).ready(function(){
+	$('body').on('click', '#btn_submit', function(){
+		var sendData = {
+				'old_pass' : $('#old_pass').val(),
+				'new_pass' : $('#new_pass').val(),
+				're_new_pass' : $('#re_new_pass').val()
+		};
+		$.ajax({
+			type: 'POST',
+			url: '/admin/ajax/changepass',
+			cache: false,
+			dataType: 'json',
+			data: sendData,
+			success: function(data){
+				var alert = $('#dv_alert');
+				if(data.status == 1){
+					alert.removeClass();
+					alert.addClass('alert-green-color');
+					$('#old_pass').val('');
+					$('#new_pass').val('');
+					$('#re_new_pass').val('');
+				}
+				else{
+					alert.removeClass();
+					alert.addClass('alert-red-color');
+				}
+				alert.html(data.msg);
+			}
+		});
+	});
+});
+</script>
+{/literal}
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Rắn mối Anh Hiển - Trang trại rắn mối</title>
+<meta name="description" content="Trang Trại Nuôi Rắn Mối">
+<meta name="keywords" content="rắn môi, nuôi rắn mối, ran moi, nuoi ran moi, trang trai nuoi ran moi">
+<link rel="shortcut icon" href="#">
+
+<meta name="classification" content="rắn môi, nuôi rắn mối, ran moi, nuoi ran moi, trang trai nuoi ran moi, ">
+<meta http-equiv="Refresh" content="3600">
+<meta name="robots" content="INDEX,FOLLOW,ALL">
+<meta name="language" content="Vietnamese,English">
+
+<link rel="stylesheet" type="text/css" href="/common/css/style.css">
+<link rel="stylesheet" type="text/css" href="/common/css/content.css">
+<script type="text/javascript" async="" src="/common/js/countryscript"></script>
+<script type="text/javascript" src="/common/js/jquery1.7.js"></script>
+
+<!-- menu -->
+<link rel="stylesheet" type="text/css" href="/common/css/ddsmoothmenu.css">
+<script type="text/javascript" src="/common/js/ddsmoothmenu.js"></script>
+<!-- End menu -->
+<script type="text/javascript" src="/common/js/jquery.advancedSlider.min.js"></script>
+<!--[if IE]><script type="text/javascript" src="/common/js/excanvas.compiled.js"></script><![endif]-->
+</head>
+
+<body id="bd"><div class="ddshadow toplevelshadow" style="left: 683.5px; top: 205px;"><div class="ddshadow" style="left: 220px; top: 0px;"></div></div><div class="ddshadow toplevelshadow" style="left: 493.5px; top: 205px; overflow: hidden; height: 0px;"></div><div class="ddshadow toplevelshadow" style="left: 297.5px; top: 205px; height: 0px; width: 220px; overflow: hidden;"></div>
+	<div id="wrapper">
+    	<div id="banner">
+        	<p><img src="/common/images/banner.jpg"/></p>
+        </div>
+        <div id="main-menu">
+			{include file="./include/top_menu.html"}
+		</div>        
+		<div id="main">
+        	<div class="slim-border head-title">
+        		<span class='head-text'>{$cats[0].category_name}</span>
+        	</div>
+        	<div class="content slim-border">
+        		{foreach from=$cats item=v}
+        		<div class='news-item'>
+        			<div class='news-image'>
+        			<a href="/{$v.title_no_sign}.html"><img src='/common/images/image_100/{$v.image_url}' alt='{$v.title}' class='imagedropshadow' /></a>
+        			</div>
+        			<div class='news-des'>
+        				<h2><a href="/{$v.title_no_sign}.html">{$v.title}</a></h2>
+        				<h3>{$v.description|nl2br|strip}</h3>
+        			</div>
+        		</div>
+        		{/foreach}
+        		<div class="clr"></div>
+        	</div>
+         </div>
+		<div id="right">
+		{include file="./include/module/video.html"}
+		{include file="./include/module/news.html"}
+		{include file="./include/module/support.html"}
+		{include file="./include/module/hitcounter.html"}
+		</div>
+		<div class="clr"></div>
+	</div>        
+<div class="footer">
+	<div class="wrapper">
+		{include file="./include/bottom_menu.html"}
+     	<div class="pd10">
+        	
+		<p align="center">
+			Coppyright:@ ranmoianhhien.com </p>
+		<p align="center">Thiết kế và phát triển: JAVISOFT</p>
+
+    	</div>
+	</div>
+</div>
+{literal}
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.slider').advancedSlider({width:740, height:216, pauseSlideshowOnHover:false, effectType:'fade', horizontalSlices:'1', verticalSlices:'1', skin: 'minimal-small', fadeSlideshowControls: false,simpleSlideEasing: 'easeInOutExpo', fadeNavigationArrows: true, navigationButtonsNumbers: false,navigationButtons: true});
+		ddsmoothmenu.init({
+			mainmenuid: "smoothmenu1",
+			orientation: 'h',
+			classname: 'ddsmoothmenu',
+			//customtheme: ["#1c5a80", "#18374a"],
+			contentsource: "markup"
+		});
+	});
+</script>
+{/literal}
+</body></html>

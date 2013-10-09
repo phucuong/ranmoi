@@ -1,0 +1,142 @@
+@charset "utf-8";
+/* --------------------------------------------------
+**
+** admin.css
+** version : 0.1
+** datte : 2013/04/04
+**
+** -------------------------------------------------- */
+/* layout */
+p { margin-bottom: 10px; }
+.admin header {
+	background: none;
+	background-color: #666666;
+}
+.admin #contents { padding-top: 20px; }
+.admin #footerInner { height: 45px; }
+.admin #footerInner .logo img { margin-top: 5px; }
+
+/* element */
+.admin .btn.normal {
+	padding: 5px 15px;
+}
+.admin h3 {
+	border-bottom: 1px dashed #aaa;
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 15px;
+}
+
+/*leftmenu*/
+.admin aside#subContents div.subBox ul.infoArea {
+	padding-top: 5px;
+}
+.admin aside#subContents div.subBox ul.infoArea li:first-child {
+	margin-top: 0;
+}
+.admin aside#subContents div.subBox ul.infoArea li {
+	padding: 0;
+}
+.admin aside#subContents div.subBox ul.infoArea a {
+	display: block;
+	padding: 10px;;
+}
+
+/*alert*/
+.admin p.alert {
+	font-size: 15px;
+	margin-bottom: 15px;
+}
+.admin p.alert span {
+	font-weight: bold;
+	color: #E01C00;
+	padding: 0 5px;
+}
+
+/*list*/
+.admin .adList {
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 8px solid #eee;
+	margin-bottom: 15px;
+}
+.admin .adList li {
+	overflow: hidden;
+	padding: 10px;
+	border-bottom: 1px dotted #d2d2d2;
+	min-height:13px;
+}
+.admin .adList li:hover {
+	background-color: #fffdf2;
+}
+.admin .adList li:last-child {
+	border: none;
+}
+.admin .adList li a.btn {
+	margin-left: 10px;
+	font-size: 11px;
+	margin-top: -3px;
+	min-width: 60px;
+	text-align: center;
+}
+.admin .adList li ul {
+	margin-left: 5px;
+}
+.admin .adList li ul li {
+	border: none;
+	margin-bottom: 5px;
+}
+.admin .adList li ul li:last-child {
+	margin-bottom: 0;
+}
+.admin .adList li dl {
+	overflow: hidden;
+	min-height: 1.3em;
+	line-height: 2em;
+}
+.admin .adList li dl dt,
+.admin .adList li dl dd {
+	float: left;
+}
+.admin .adList li dl dt {
+	width: 150px;
+}
+.admin .adList li dl dd img {
+	max-width: 150px;
+	max-height: 150px;
+}
+.admin .adList li.del_user {
+	background-color: #ccc;
+}
+.admin .adList li span.admin_user_button {
+	float:left;
+}
+.admin .adList li span#admin_user_title {
+	float:left;
+	width: 300px;
+	line-height: 15px;
+}
+.admin #btn_search{
+	padding: 5px 20px;
+}
+.admin div.left { float: left; width:50%; }
+.admin div.right { float: left; width:50%; }
+.admin div.left ul {
+	margin-top: 10px;
+	margin-left: 15px;
+	padding-right: 10px;
+}
+.admin div.left ul li,
+.admin div.right ul li {
+	padding: 5px 0 0 0;
+	margin-bottom: 5px;
+}
+.admin div.right a.btn,
+.admin div.right ul {
+	float: right;
+}
+.admin div.right ul {
+	margin-top: 10px;
+}
+a.delete_message { float: right; }

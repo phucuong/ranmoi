@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Quản Trị bài viết</title>
+<link href="/common/css/adminstyle.css" type="text/css" rel="stylesheet" />
+<link href="/common/css/alert_box.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+{literal}
+th{
+	width: 200px;
+}
+{/literal}
+</style>
+<script type="text/javascript" src="/common/js/jquery.js"></script>
+<script type="text/javascript" src="/common/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/common/ckeditor/ckfinder/ckfinder.js"></script>
+<script type="text/javascript" src="/common/js/jquery.validate.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+<div id="header">
+<h1>Rắn mối Giang Điền</h1>
+<h3>PHẦN QUẢN TRỊ WEBSITE</h3>
+<div id="chao">Chào bạn {$name}
+</div>
+<div id="thoat"><a href="/">Trang chủ</a> &nbsp; <a href="/logout">Thoát</a></div>
+</div>
+{include file="./include/admin_menu.html"}
+<div id="info">
+<div id="caption">Cập nhật bài viết</div>
+<div id="homnay">{$time}</div>
+</div>
+<div id="content_wrapper">
+<div id="content">
+<div id="dv_alert" class="alert-red-color">{$msg}</div>
+<div style="padding-top:5px;">
+<form action="/admin/news/edit/{$news_info.news_id}" method="post" name="form1" id="form1" enctype="multipart/form-data">
+	<table border="1" cellpadding="4px" width="800px" align="center">
+		<tr>
+			<th>Tiêu đề</th> 
+			<td><input type="text" id="txt_title" name="txt_title" style="width: 250px;" value="{$news_info.title}" /></td>
+		</tr>
+		<tr>
+			<th>Danh mục</th> 
+			<td><select name="cat">
+				{foreach from=$cats item=i}
+				<option value="{$i.category_id}" {if $news_info.category_id == $i.category_id}selected='selected'{/if} >{$i.category_name}</option>
+				{/foreach}
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<th>Ẩn đi</th> 
+			<td><input type="checkbox" name='chk_hide' {if $news_info.hide == 1}checked='checked'{/if}/></td>
+		</tr>
+		<tr>
+			<th>Hình ảnh</th> 
+			<td><input type="file" name='file' id="file"/>&nbsp;(Max:2Mb)
+				<img src="/common/images/image_100/{$news_info.image_url}" alt="image" />
+			</td>
+		</tr>
+		<tr>
+			<th>Mô tả</th> 
+			<td><textarea id="txt_desc" name="txt_desc" rows="3" cols="40">{$news_info.description}</textarea></td>
+		</tr>
+		<tr>
+			<th>Nội dung</th> 
+			<td>
+				<textarea cols="80" id="txt_content" name="txt_content" rows="5">{$news_info.content}</textarea>
+				<script type="text/javascript">
+				{literal}
+				var editor = CKEDITOR.replace( 'txt_content',{
+					uiColor : '#9AB8F3',
+					width: '600px',
+					height: '500px',
+					language:'vi',
+					skin:'kama',
+					filebrowserImageBrowseUrl : '/common/ckeditor/ckfinder/ckfinder.html?Type=Images',
+					filebrowserFlashBrowseUrl : '/common/ckeditor/ckfinder/ckfinder.html?Type=Flash',
+					filebrowserImageUploadUrl : '/common/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+					filebrowserFlashUploadUrl : '/common/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+					toolbar:[
+					['Cut','Copy','Paste','PasteText','PasteFromWord'],
+					['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+					['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'],
+					['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
+					['NumberedList','BulletedList','-','Outdent','Indent','Blockquote','CreateDiv'],
+					['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+					['Link','Unlink','Anchor'],
+					['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
+					['Styles','Format','Font','FontSize'],
+					['TextColor','BGColor'],
+					]
+				});
+				{/literal}
+				</script>
+			</td>
+		</tr>
+		<tr>
+			<th></th> 
+			<td><input id='btnInsert' type="submit" value="Cập nhật" />
+				<a href="/admin/category" class="cancel btn submitBtn">Hủy</a></td>
+		</tr>
+	</table>
+<input type='hidden' value='{$news_info.news_id}' name='news_id'/>
+<input type='hidden' value='{$news_info.image_url}' name='image_url'/>
+</form>
+</div>
+</div>
+</div>
+</div>
+{include file='./include/alert_box.html'}
+<script type="text/javascript" src="/common/js/admin/common.js"></script>
+<script type="text/javascript" src="/common/js/alert_box.js"></script>
+<script type="text/javascript" src="/common/js/admin/news.js"></script>
+</body>
+</html>

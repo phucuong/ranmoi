@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Quản Trị hình ảnh</title>
+<link href="/common/css/adminstyle.css" type="text/css" rel="stylesheet" />
+<link href="/common/css/alert_box.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+{literal}
+th{
+	width: 200px;
+}
+{/literal}
+</style>
+<script type="text/javascript" src="/common/js/jquery.js"></script>
+<script type="text/javascript" src="/common/js/jquery.validate.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+<div id="header">
+<h1>Rắn mối Giang Điền</h1>
+<h3>PHẦN QUẢN TRỊ WEBSITE</h3>
+<div id="chao">Chào bạn {$name}
+</div>
+<div id="thoat"><a href="/">Trang chủ</a> &nbsp; <a href="/logout">Thoát</a></div>
+</div>
+{include file="./include/admin_menu.html"}
+<div id="info">
+<div id="caption">Thêm hình ảnh</div>
+<div id="homnay">{$time}</div>
+</div>
+<div id="content_wrapper">
+<div id="content">
+<div id="dv_alert" class="alert-red-color">{$msg}</div>
+<div style="padding-top:5px;">
+<form action="/admin/photo/upload" method="post" name="form1" id="form1" enctype="multipart/form-data">
+	<table border="1" cellpadding="4px" width="800px" align="center">
+		<tr>
+			<th>Hình ảnh</th> 
+			<td><input type="file" name='file' id="file"/>&nbsp;(Max:2Mb)</td>
+		</tr>
+		<tr>
+			<th>Thứ tự</th> 
+			<td><input type='text' name='txt_order' id='txt_order' /></td>
+		</tr>
+		<tr>
+			<th></th> 
+			<td><input id='btnInsert' type="submit" value="Thêm" />
+				<a href="/admin/photo" class="cancel btn submitBtn">Hủy</a></td>
+		</tr>
+	</table>
+</form>
+</div>
+</div>
+</div>
+</div>
+{include file='./include/alert_box.html'}
+<script type="text/javascript" src="/common/js/admin/common.js"></script>
+<script type="text/javascript" src="/common/js/admin/photo.js"></script>
+</body>
+</html>

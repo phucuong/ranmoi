@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Quản Trị danh mục</title>
+<link href="/common/css/adminstyle.css" type="text/css" rel="stylesheet" />
+<link href="/common/css/alert_box.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+{literal}
+th{
+	width: 200px;
+}
+{/literal}
+</style>
+<script type="text/javascript" src="/common/js/jquery.js"></script>
+</head>
+<body>
+<div id="wrapper">
+<div id="header">
+<h1>Rắn mối Giang Điền</h1>
+<h3>PHẦN QUẢN TRỊ WEBSITE</h3>
+<div id="chao">Chào bạn {$name}
+</div>
+<div id="thoat"><a href="/">Trang chủ</a> &nbsp; <a href="/logout">Thoát</a></div>
+</div>
+{include file="./include/admin_menu.html"}
+<div id="info">
+<div id="caption">Cập nhật danh mục</div>
+<div id="homnay">{$time}</div>
+</div>
+<div id="content_wrapper">
+<div id="content">
+<div id="dv_alert" class="alert-red-color">{$msg}</div>
+<div style="padding-top:5px;">
+<form action="/admin/category/edit/{$cat.category_id}" method="post" name="form1">
+	<table border="1" cellpadding="4px" width="600px" align="center">
+		<tr>
+			<th>Tên danh mục</th> 
+			<td><input type="text" id="cat_name" name="cat_name" value='{$cat.category_name}' /></td>
+		</tr>
+		<tr>
+			<th>Tên danh mục cha</th> 
+			<td>
+				<select name="lst_cat_parent">
+					<option value="0">Chọn danh mục cha</option>
+					{foreach from=$menu item=i}
+					<option value="{$i.category_id}" {if $cat.category_id_father == $i.category_id} selected='selected' {/if}>{$i.category_name}</option>
+					{/foreach}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<th>Ẩn đi</th> 
+			<td><input type="checkbox" name='chk_hide' {if $cat.hide == 1}checked='checked' {/if}/></td>
+		</tr>
+		<tr>
+			<th>Vị trí xuất hiện</th> 
+			<td>
+				<table>
+					<tr>
+						<td>Menu trên</td>
+						<td><input type="checkbox" name="chk_top_menu" id="chk_top_menu" {if $cat.top_pos == 1}checked='checked' {/if} /> &nbsp; <span id="sp_top" {if $cat.top_pos == 0} style="display:none;" {/if}> Thứ tự: <input type="text" name="order_top_menu" id="order_top_menu" value='{$cat.top_order}' /></span></td>
+					</tr>
+					<tr>
+						<td>Ở giữa</td>
+						<td><input type="checkbox" name="chk_mid_menu" id="chk_mid_menu" {if $cat.mid_pos == 1}checked='checked' {/if} /> &nbsp; <span id="sp_mid" {if $cat.mid_pos == 0} style="display:none;" {/if}>Thứ tự: <input type="text" name="order_mid_menu" id="order_mid_menu" value='{$cat.top_order}' /></span></td>
+					</tr>
+					<tr>
+						<td>Menu dưới</td>
+						<td><input type="checkbox" name="chk_bottom_menu" id="chk_bottom_menu" {if $cat.bot_pos == 1}checked='checked' {/if}  /> &nbsp; <span id="sp_bottom" {if $cat.bot_pos == 0} style="display:none;" {/if}>Thứ tự: <input type="text" name="order_bottom_menu" id="order_bottom_menu" value='{$cat.top_order}' /></span></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<th></th> 
+			<td><a href="javascript:void(0);" id="btn_submit" class="btn submit submitBtn">Sửa</a>&nbsp;
+				<a href="/admin/category" class="cancel btn submitBtn">Hủy</a></td>
+		</tr>
+	</table>
+<input type="hidden" value="{$cat.category_id}" name="cat_id" />
+</form>
+</div>
+</div>
+</div>
+</div>
+{include file='./include/alert_box.html'}
+<script type="text/javascript" src="/common/js/admin/common.js"></script>
+<script type="text/javascript" src="/common/js/alert_box.js"></script>
+<script type="text/javascript" src="/common/js/admin/category.js"></script>
+</body>
+</html>

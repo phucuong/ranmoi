@@ -1,0 +1,136 @@
+#main-menu{ background: url(../images/bg-menu.jpg) repeat-x top; height:38px; width:980px; margin:0 auto; margin-top:2px;}
+#main-menu .wrapper{ width:990px; margin:0 auto;}
+.ddsmoothmenu{
+font-size:12px;
+font-weight:bold;
+margin: 0 auto;
+}
+.ddsmoothmenu img{ border:0 none; display:none;}
+
+.ddsmoothmenu ul{
+z-index:1000 !important;
+margin: 0;
+padding: 0;
+list-style-type: none;
+float:left;
+}
+ 
+/*Top level list items*/
+.ddsmoothmenu ul li{
+position: relative;
+display: inline;
+float: left;
+z-index:1000 !important;
+padding:2px 6px 0px 3px;
+background:url(../images/li-menu.jpg) no-repeat right;
+}
+
+/*Top level menu link items style*/
+.ddsmoothmenu ul li a{
+display: block;
+padding: 7px 22px 12px 20px !important;
+color: #FFF;
+text-decoration: none;
+margin-top:2px;
+}
+
+* html .ddsmoothmenu ul li a{ /*IE6 hack to get sub menu links to behave correctly*/
+display: inline-block;
+
+}
+
+.ddsmoothmenu ul li a:link, .ddsmoothmenu ul li a:visited{
+color: #FFF;
+}
+.ddsmoothmenu ul li a.m_selected{ /*CSS class that's dynamically added to the currently active menu items' LI A element*/
+color: #000;
+background:#f2f2f2;
+}
+.ddsmoothmenu ul li:hover a{
+color: #000;
+background:#f2f2f2;
+}
+.ddsmoothmenu ul li a:hover{
+color: #000;
+background:#f2f2f2;
+}
+.ddsmoothmenu ul li a.home{ display:block; width:85px; height:36px; padding:0 !important;}
+.ddsmoothmenu ul li a.home:hover, .ddsmoothmenu ul li a.home_select{background:url(bg-menu.jpg) no-repeat bottom left;}
+.ddsmoothmenu ul li a.home span{ display:none;}
+	
+/*1st sub level menu*/
+.ddsmoothmenu ul li ul{
+position: absolute;
+left: 0;
+display: none; /*collapse all sub menus to begin with*/
+visibility: hidden;
+border:none;}
+
+/*Sub level menu list items (undo style from Top level List Items)*/
+.ddsmoothmenu ul li ul li{
+display: list-item;
+float: none;
+border:none;
+padding-top:0;
+background:none0; padding:0;
+}
+
+/*All subsequent sub menu levels vertical offset after 1st level sub menu */
+.ddsmoothmenu ul li ul li ul{
+top: 0;
+}
+
+/* Sub level menu links style */
+.ddsmoothmenu ul li ul li a{
+text-transform:none;
+width: 190px; /*width of sub menus*/
+padding: 8px 15px 8px 15px !important;
+margin: 0;
+border-bottom: 1px solid #E5E0E0;
+background:#f2f2f2 !important;
+color:#000 !important;
+}
+.ddsmoothmenu ul li ul li a:hover{ color:#c9242b !important;}
+
+/* Holly Hack for IE \*/
+* html .ddsmoothmenu{height: 1%;} /*Holly Hack for IE7 and below*/
+
+
+/* ######### CSS classes applied to down and right arrow images  ######### */
+
+.downarrowclass{
+position: absolute;
+top: 12px;
+right: 7px;
+}
+
+.rightarrowclass{
+position: absolute;
+top: 6px;
+right: 5px;
+}
+
+/* ######### CSS for shadow added to sub menus  ######### */
+
+.ddshadow{
+position: absolute;
+left: 0;
+top: 0;
+width: 0;
+height: 0;
+background: silver;
+}
+
+.toplevelshadow{ /*shadow opacity. Doesn't work in IE*/
+opacity: 0.5;
+display:none;
+}@charset "utf-8";
+/* CSS Document */
+
+.timkiem{ width:245px; float:right; padding:8px 0 5px 5px;}
+.timkiem .searchText {background: url(../images/bg-tim.jpg) no-repeat center center;}
+.timkiem .searchText input {background: none;border: 0 none;color: #333;padding:6px 6px 3px 3px; color:#333; width:224px; font-size:11px;}
+.timkiem .searchBtn {background: url(bg-subtim.jpg) no-repeat right top;cursor: pointer;width: 27px;}
+.timkiem .searchBtnOn {background: url(bg-subtim.jpg) no-repeat right top;cursor: pointer;width: 27px;}
+.timkiem img{ display:block !important; margin-left:4px;}
+.timkiem td{ vertical-align:top;}

@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Quản Trị hình ảnh</title>
+<link href="/common/css/adminstyle.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/common/js/jquery.js"></script>
+<script type="text/javascript" src="/common/js/jquery.validate.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+<div id="header">
+<h1>Rắn mối Giang Điền</h1>
+<h3>PHẦN QUẢN TRỊ WEBSITE</h3>
+<div id="chao">Chào bạn {$name}
+</div>
+<div id="thoat"><a href="/">Trang chủ</a> &nbsp; <a href="/logout">Thoát</a></div>
+</div>
+{include file="./include/admin_menu.html"}
+<div id="info">
+<div id="caption">Quản lý hình ảnh</div>
+<div id="homnay">{$time}</div>
+</div>
+<div id="content_wrapper">
+<div id="content">
+<div id="dv_alert">{$msg}</div>
+<div style="padding-top:5px;">
+<table border=1 cellpadding=4 cellspacing=0 width=365 align=center>
+	<tr>
+		<th>Hình ảnh</th> <th>Thứ tự</th> <th></th>
+	</tr>
+	{foreach from=$photos item=i}
+		<tr>  
+			  <td width="110" align="center">
+			  	<img src="/common/images/photo_138/{$i.photo_url}" alt="image" width='100px' height='100px' />
+			  </td>
+		      <td width="50" align="center">
+		      		<label>{$i.order}</label>
+		      </td>
+		      <td width="150" align="center">
+		      	<span>
+					<a href="javascript:void(0);" class="btn_delete" id='item_{$i.photo_id}' >Xóa</a>
+				</span>
+		  	  </td>
+		</tr>
+	{/foreach}
+	<tr><td colspan="4" align="right"><a href="/admin/photo/upload" id="add" class="btn submit submitBtn">Thêm hình ảnh</a></td></tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="/common/js/admin/photo.js"></script>
+</body>
+</html>

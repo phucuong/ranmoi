@@ -1,0 +1,12 @@
+<div class="module">
+	<h3 class="module-title">Tin tức</h3>
+	<div class="module-noidung">
+		<div class="right-menu">
+			<ul>
+			{foreach from=$news item=v}
+            	<li><a href="/{$v.title_no_sign}.html" title="{$v.title}">{$v.title}</a></li>
+            {/foreach}
+            </ul>
+  		</div>
+	</div>
+</div>
