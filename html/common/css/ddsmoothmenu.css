@@ -127,7 +127,7 @@ display:none;
 }@charset "utf-8";
 /* CSS Document */
 
-.timkiem{ width:245px; float:right; padding:8px 0 5px 5px;}
+.timkiem{ width:240px; float:right; padding:4px 5px 5px;}
 .timkiem .searchText {background: url(../images/bg-tim.jpg) no-repeat center center;}
 .timkiem .searchText input {background: none;border: 0 none;color: #333;padding:6px 6px 3px 3px; color:#333; width:224px; font-size:11px;}
 .timkiem .searchBtn {background: url(bg-subtim.jpg) no-repeat right top;cursor: pointer;width: 27px;}

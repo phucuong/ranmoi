@@ -371,7 +371,6 @@
             'type' => 'text',
             'option'=>array('mtaOption'=>'-f '.$from_mailaddress),
         );
-
         $return_flag = @qd_send_mail( $option , $to , $subject , $body , $other_heder);
 
         if(!$return_flag){

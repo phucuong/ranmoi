@@ -57,7 +57,7 @@
 </a></div>        <div class="cls"></div>
 
          <div id="formContact">
-            	 <form novalidate="novalidate" id="contact-form" action="" method="post">
+            	 <form novalidate="novalidate" id="contact-form" action="" method="post" id="form1" name="form1">
 					<div class="form-el">
                 	 	<label for="subject">Chủ đề</label>
                             <input type="text" required="" class="validate[required]" value="" id="subject" name="subject">
@@ -80,12 +80,12 @@
                        </div>
                        <div class="form-el">
                        <label for="txtContent">Nội dung</label>
-                            	<textarea required="" cols="" rows="" placeholder="Nội dung" class="validate[required]" id="txtContent" name="content"></textarea>
+                            	<textarea required="" cols="" rows="" placeholder="Nội dung" class="validate[required]" id="txtContent" name="txtContent"></textarea>
                         </div>
                         <div class="form-el last">
                         	<label for="btnSubmit">&nbsp;</label>
                             <input type="submit" name="submit" value="Gửi" class="btnSubmit">
-                            <input type="submit" name="reset" value="Nhập lại" class="btnSubmit">
+                            <input type="reset" name="reset" value="Nhập lại" class="btnSubmit">
                        </div>
                   </form>
             </div>
@@ -160,7 +160,12 @@
 		speed: 2000,
 		auto: 3000
 	});
+	
+{/literal}	
+	{if $msg != ''}
+		alert('{$msg}');
+	{/if}
 
 </script>
-{/literal}
+
 </body></html>

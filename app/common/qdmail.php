@@ -3762,7 +3762,7 @@ class QdmailComponent extends QdmailUserFunc{
     //----------------------------
     // Override Parent Method
     //----------------------------
-    function & smtpObject(){
+    function & smtpObject( $null = false ){
         if( isset( $this->Qdsmtp ) && is_object( $this->Qdsmtp ) ){
             return $this->Qdsmtp;
         }

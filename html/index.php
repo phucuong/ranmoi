@@ -9,6 +9,7 @@
         {
         	defined('APP_ENV')
 				|| define('APP_ENV', (getenv('APP_ENV') ? getenv('APP_ENV') : 'production'));
+			
 			$this->_configName = 'config_'.APP_ENV.'.ini';
             set_include_path(
                 $this->_applicationFolder ."libs/ZendFramework-1.11.12/library" . PATH_SEPARATOR .
@@ -21,6 +22,10 @@
 
             $this->_config = new Zend_Config_Ini($this->_applicationFolder .$this->_configName, "common");
 
+            define('SITE_EMAIL',$this->_config->def->site_mail); //email nhan
+			define('ADMIN_EMAIL',$this->_config->def->admin_mail); //email send
+			define('ADMIN_EMAIL_PASSWD',$this->_config->def->admin_mail_pass);
+			
             $this->_initDataBase();
             $this->_setRegistry();
 
