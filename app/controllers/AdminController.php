@@ -288,6 +288,7 @@ class AdminController extends Zend_Controller_Action
 	}
 	
 	public function deletecategoryAction(){
+		$this->_helper->viewRenderer->setNoRender();
 		$request = $this->_request;
 		$catId = $request->getParam('catid',0);
 		$new = new News();
@@ -455,6 +456,7 @@ class AdminController extends Zend_Controller_Action
 	}
 	
 	public function deletenewsAction(){
+		$this->_helper->viewRenderer->setNoRender();
 		$request = $this->_request;
 		$newsId = $request->getParam('newsid',0);
 		$new = new News();
@@ -512,6 +514,7 @@ class AdminController extends Zend_Controller_Action
 	}
 	
 	public function deletephotoAction(){
+		$this->_helper->viewRenderer->setNoRender();
 		$request = $this->_request;
 		$photoId = $request->getParam('photoid',0);
 		$photo = new Photo();
